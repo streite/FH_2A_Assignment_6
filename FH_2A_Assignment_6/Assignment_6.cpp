@@ -12,7 +12,7 @@ private:
    string string1,string2,string3;
 
    // Method
-   bool validString(string str);
+   static bool validString(string str);
 
 public:
 
@@ -36,15 +36,15 @@ public:
    bool setString1(string initString);
    bool setString2(string initString);
    bool setString3(string initString);
+
+   // Concatenate Three Private Member Strings
+   string toString(TripleString triple);
 };
 
 // Static Constants Initialization
 const int TripleString::MAX_LEN = 50;
 const int TripleString::MIN_LEN = 1;
 const string TripleString::DEFAULT_STRING = " (undefined) ";
-
-// Concatenate Three Private Member Strings
-string toString(TripleString triple);
 
 //----------------------------- Main Method ------------------------------------
 int main()
@@ -59,14 +59,10 @@ int main()
    TripleString TripleObj4("Dad","Mom","Sister");
 
    // Display All Objects
-   String123 = toString(TripleObj1);
-   cout << "All strings in TripleString Object 1: " << String123 << endl;
-   String123 = toString(TripleObj2);
-   cout << "All strings in TripleString Object 2: " << String123 << endl;
-   String123 = toString(TripleObj3);
-   cout << "All strings in TripleString Object 3: " << String123 << endl;
-   String123 = toString(TripleObj4);
-   cout << "All strings in TripleString Object 4: " << String123 << endl;
+   cout << "All strings in TripleString Object 1: " << TripleObj1.toString(TripleObj1) << endl;
+   cout << "All strings in TripleString Object 2: " << TripleObj2.toString(TripleObj2) << endl;
+   cout << "All strings in TripleString Object 3: " << TripleObj3.toString(TripleObj3) << endl;
+   cout << "All strings in TripleString Object 4: " << TripleObj4.toString(TripleObj4) << endl;
    cout << endl;
 
    // Mutate Objects
@@ -76,14 +72,10 @@ int main()
    TripleObj4.setString1("fried");
 
    // Display All Objects
-   String123 = toString(TripleObj1);
-   cout << "All strings in TripleString Object 1: " << String123 << endl;
-   String123 = toString(TripleObj2);
-   cout << "All strings in TripleString Object 2: " << String123 << endl;
-   String123 = toString(TripleObj3);
-   cout << "All strings in TripleString Object 3: " << String123 << endl;
-   String123 = toString(TripleObj4);
-   cout << "All strings in TripleString Object 4: " << String123 << endl;
+   cout << "All strings in TripleString Object 1: " << TripleObj1.toString(TripleObj1) << endl;
+   cout << "All strings in TripleString Object 2: " << TripleObj2.toString(TripleObj2) << endl;
+   cout << "All strings in TripleString Object 3: " << TripleObj3.toString(TripleObj3) << endl;
+   cout << "All strings in TripleString Object 4: " << TripleObj4.toString(TripleObj4) << endl;
    cout << endl;
 
 
@@ -192,32 +184,11 @@ bool TripleString::validString(string str)
 }
 
 // Concatenate All 3 String Members
-string toString(TripleString triple)
+string TripleString::toString(TripleString triple)
 {
    string concatStr;
 
-   concatStr = triple.getString1() + "-" + triple.getString2() + "-"
-      + triple.getString3();
+   concatStr = string1 + string2 + string3;
 
    return concatStr;
 }
-
-/*------------------------------ Results ---------------------------------------
-
-All strings in TripleString Object 1:  (undefined) - (undefined) - (undefined)
-All strings in TripleString Object 2: A-B-C
-All strings in TripleString Object 3:  (undefined) - (undefined) - (undefined)
-All strings in TripleString Object 4: Dad-Mom-Sister
-
-All strings in TripleString Object 1: mashed- (undefined) - (undefined)
-All strings in TripleString Object 2: A-B-potato
-All strings in TripleString Object 3:  (undefined) -chicken- (undefined)
-All strings in TripleString Object 4: fried-Mom-Sister
-
-Mutation of member string1 of TripleObj1 failed
-Mutation of member string1 of TripleObj1 succesful
-
-String1 of TripleString Object 1: Lego
-String2 of TripleString Object 4: Mom
-
-------------------------------------------------------------------------------*/
